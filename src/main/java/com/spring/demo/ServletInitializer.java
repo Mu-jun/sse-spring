@@ -1,4 +1,4 @@
-package com.sindo.techno.monitoring;
+package com.spring.demo;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
