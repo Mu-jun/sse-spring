@@ -96,6 +96,19 @@
 <!--      <version>23.3.0.23.09</version>-->
 <!--    </dependency>-->
 
+    <!-- JSP 사용을 위한 라이브러리 -->
+    <!-- jasper -->
+    <dependency>
+      <groupId>org.apache.tomcat.embed</groupId>
+      <artifactId>tomcat-embed-jasper</artifactId>
+      <!--			<scope>provided</scope>-->
+    </dependency>
+    <!-- jstl -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+    </dependency>
+
     <!-- gson -->
     <dependency>
       <groupId>com.google.code.gson</groupId>
