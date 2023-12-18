@@ -23,7 +23,7 @@ public class SseRestController {
 
     @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public ResponseEntity<SseEmitter> SeeSubscribe() {
-        SseEmitter emitter = new SseEmitter(60 * 1000L);
+        SseEmitter emitter = new SseEmitter();
         sseEmitter.add(emitter);
 
         // 만료 시간까지 데이터 전송이 없으면
@@ -34,6 +34,7 @@ public class SseRestController {
                     .data("connected!") // 503 에러 방지를 위한 더미 데이터
             );
         } catch (IOException e) {
+            emitter.complete();
             throw new RuntimeException(e);
         }
 

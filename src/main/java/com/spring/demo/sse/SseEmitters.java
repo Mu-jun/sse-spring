@@ -11,12 +11,16 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @Component
 public class SseEmitters {
 
+    private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
+
+    public List<SseEmitter> getEmitters() {
+        return new CopyOnWriteArrayList<>(emitters);
+    }
+
     // 이 콜백이 SseEmitter를 관리하는 다른 스레드에서 실행되기 때문에
     // thread-safe한 자료 구조를 사용해야 한다.
     // 사용하지 않으면 ConcurrnetModificationException 에러 발생 가능
     // **CopyOnWriteArrayList**
-    private final List<SseEmitter> emitters = new CopyOnWriteArrayList<>();
-
     SseEmitter add(SseEmitter emitter) {
         this.emitters.add(emitter);
         log.info("new emitter added added: {}", emitter);
