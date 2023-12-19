@@ -23,7 +23,7 @@ public class SseRestController {
 
     @GetMapping(value = "/subscribe", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public ResponseEntity<SseEmitter> SeeSubscribe() {
-        SseEmitter emitter = new SseEmitter();
+        SseEmitter emitter = new SseEmitter(10*1000L);
         sseEmitter.add(emitter);
 
         // 만료 시간까지 데이터 전송이 없으면

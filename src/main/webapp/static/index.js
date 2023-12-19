@@ -22,4 +22,5 @@ eventSource.addEventListener('notification', (e) => {
 eventSource.onerror = (error) => {
   console.error('EventSource error:', error);
   console.error('EventSource :', this);
+  //eventSource.close();
 };
